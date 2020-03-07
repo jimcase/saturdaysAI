@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/mlviewapp.iml" filepath="$PROJECT_DIR$/.idea/mlviewapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/saturdaysAI.iml" filepath="$PROJECT_DIR$/.idea/saturdaysAI.iml" />
     </modules>
   </component>
 </project>
