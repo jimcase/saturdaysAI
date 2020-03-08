@@ -1,3 +1,4 @@
+import sys
 from _csv import Error
 
 import matplotlib.pyplot as plt
@@ -5,7 +6,7 @@ import pandas as pd
 import seaborn as sb
 
 
-class DataTable:
+class DataFrame:
     data_frame = {}
     file_name = ""
 
@@ -60,7 +61,7 @@ class DataTable:
 
     def plot_columns_correlation(self):
         corrm = self.data_frame.corr()
-        # corrm.style.background_gradient(cmap='coolwarm')
+        print(corrm)
         a = sb.heatmap(corrm,
                        xticklabels=corrm.columns,
                        yticklabels=corrm.columns,
@@ -74,9 +75,10 @@ class DataTable:
 
 
 if __name__ == '__main__':
-    file_name = "/Users/jcaso/Documents/ia/saturdaysAI/assets/session01/housing.csv"
+    # argument: full_path_to/housing.csv
+    file_name = sys.argv[1]
 
-    dt = DataTable()
+    dt = DataFrame()
     dt.read_csv(file_name)
     # print(dt.describe())
     # print(dt.columns_names())
@@ -84,4 +86,4 @@ if __name__ == '__main__':
     print("\nmissing data:")
     print(dt.missing_data())
 
-    dt.plot_columns_correlation()
+    # dt.plot_columns_correlation()
