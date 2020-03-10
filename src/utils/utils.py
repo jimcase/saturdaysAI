@@ -1,5 +1,3 @@
-from _csv import Error
-
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sb
@@ -13,9 +11,6 @@ class DataFrame:
         pass
 
     def read_data_file(self, file_name, delimiter):
-
-        if not file_name.endswith('.csv'):
-            raise Error("Wrong extension. Expected '.csv'")
 
         try:
             self.data_frame = pd.read_csv(file_name, na_values=['no info', '.'], sep=delimiter)
