@@ -1,4 +1,4 @@
-import sys
+
 from _csv import Error
 
 import matplotlib.pyplot as plt
@@ -72,18 +72,3 @@ class DataFrame:
         # a.invert_yaxis()
         # a.xaxis.tick_top()
         plt.show()
-
-
-if __name__ == '__main__':
-    # argument: full_path_to/housing.csv
-    file_name = sys.argv[1]
-
-    dt = DataFrame()
-    dt.read_csv(file_name)
-    # print(dt.describe())
-    # print(dt.columns_names())
-    # dt.plot()
-    print("\nmissing data:")
-    print(dt.missing_data())
-
-    # dt.plot_columns_correlation()
