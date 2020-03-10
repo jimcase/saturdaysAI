@@ -1,4 +1,3 @@
-
 from _csv import Error
 
 import matplotlib.pyplot as plt
@@ -13,13 +12,13 @@ class DataFrame:
     def __init__(self):
         pass
 
-    def read_csv(self, file_name):
+    def read_data_file(self, file_name, delimiter):
 
         if not file_name.endswith('.csv'):
             raise Error("Wrong extension. Expected '.csv'")
 
         try:
-            self.data_frame = pd.read_csv(file_name, na_values=['no info', '.'], sep=",")
+            self.data_frame = pd.read_csv(file_name, na_values=['no info', '.'], sep=delimiter)
             self.file_name = file_name
         except IOError:
             print("Error: can\'t find file or read data")
@@ -51,15 +50,14 @@ class DataFrame:
 
         return missing_data.head()
 
-    # TODO generic method
-    def plot(self):
+    def plot(self, x_label, y_label, column, x_size, y_size, leyend_label):
         plotter = self.data_frame.copy()
-        plotter.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4, s=plotter["population"] / 100,
-                     label="population", figsize=(15, 8), c="median_house_value", cmap=plt.get_cmap("jet"),
-                     colorbar=True, )
+        plotter.plot(kind="scatter", x=x_label, y=y_label, alpha=0.4, s=plotter[column] / 100,
+                     label=column, figsize=(x_size, y_size), c=leyend_label, cmap=plt.get_cmap("jet"),
+                     colorbar=True)
         plt.show()
 
-    def plot_columns_correlation(self):
+    def plot_table_correlation(self):
         corrm = self.data_frame.corr()
         print(corrm)
         a = sb.heatmap(corrm,

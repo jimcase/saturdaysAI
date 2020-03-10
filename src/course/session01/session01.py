@@ -7,11 +7,11 @@ if __name__ == '__main__':
     file_name = sys.argv[1]
 
     dt = DataFrame()
-    dt.read_csv(file_name)
+    dt.read_data_file(file_name, ",")
     # print(dt.describe())
     # print(dt.columns_names())
-    # dt.plot()
+    dt.plot("longitude", "latitude", "population", 15, 8, "median_house_value")
     print("\nmissing data:")
     print(dt.missing_data())
 
-    dt.plot_columns_correlation()
+    # dt.plot_columns_correlation()
