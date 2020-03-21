@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/jimcase/saturdaysAI.svg?branch=master)](https://travis-ci.com/jimcase/saturdaysAI)
+
 # saturdaysAI
 
 ### Update environment dependencies
