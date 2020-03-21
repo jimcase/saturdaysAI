@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='common',
-    url='https://github.com/Stance4Health-Dev/Recipr',
+    url='https://github.com/jimcase/saturdaysAI/tree/develop',
     license='GNU General Public License v3.0',
     author='jimcase',
     keywords='test unittest common',
