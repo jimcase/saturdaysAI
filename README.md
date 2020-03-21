@@ -18,5 +18,20 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+### Import the parameters to the environment
 
+#### Install 
+```bash
+pip3 install python-dotenv 
+```
+### Create .flaskenv file and add
 
+```properties
+FLASK_APP=app.py
+FLASK_ENV=development
+```
+
+### Update pip
+```bash
+pip3 install --upgrade pip
+```

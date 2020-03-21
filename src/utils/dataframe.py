@@ -125,7 +125,7 @@ class DataFrame:
         # df = self.data_frame.dropna(axis=0)
 
     def missing_data(self) -> FrameOrSeries:
-        """Get the head table about missing data in the dataframe
+        """Get the table about missing data in the dataframe
         Returns
         -------
         FrameOrSeries
@@ -135,7 +135,7 @@ class DataFrame:
         percent = (self.data_frame.isnull().sum() / self.data_frame.isnull().count()).sort_values(ascending=False)
         missing_data = pd.concat([total, percent], axis=1, keys=['Total', 'Percent'])
 
-        return missing_data.head()
+        return missing_data
 
     def plot(self, x_label: str, y_label: str, column: str, x_size: int, y_size: int, leyend_label: str):
         """Plot the dataframe given the sepecific parameters
@@ -173,3 +173,7 @@ class DataFrame:
                        linewidth=1)
 
         plt.show()
+
+    def toString(self):
+        # TODO
+        pass
