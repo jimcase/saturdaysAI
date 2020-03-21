@@ -105,6 +105,19 @@ class DataFrame:
         if self.data_frame[column_name]:
             del self.data_frame[column_name]
 
+    def delete_rows(self, column_name: str, value):
+        """Delete rows based on a specific value in column
+        Parameters
+        ----------
+        column_name : str
+            the name of the column to check the value
+        value : multiple type
+            the value of the condition
+        """
+        # df[df['column name'].map(len) < 2]
+        index_names = self.data_frame[self.data_frame[column_name] == value].index
+        self.data_frame.drop(index_names, inplace=True)
+
     def preprocess(self, empty_rows: bool, one_column_data_missed: bool):
         """Delete rows based on row data missing
         Parameters
@@ -174,6 +187,16 @@ class DataFrame:
 
         plt.show()
 
-    def toString(self):
-        # TODO
-        pass
+    def save_to_csv(self, file_name: str):
+        """Save the data_frame to csv in disk
+        Parameters
+        ----------
+        file_name : str
+            the csv path and name
+        Returns
+        """
+        csv = self.data_frame.to_csv()
+        print(type(csv))
+
+        with open(file_name, "w") as data_file:
+            print(csv, file=data_file)

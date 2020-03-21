@@ -19,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-flask": "cd .. && cd .. && cd .. && source venv/bin/activate && venv/bin/python3 src/visualization/flask/app.py",
+    "test-flask": "cd .. && cd .. && venv/bin/flask test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
