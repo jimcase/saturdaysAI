@@ -133,3 +133,5 @@ dmypy.json
 
 /src/scripts/exome/
 /assets/exome/
+
+.DS_Store*
