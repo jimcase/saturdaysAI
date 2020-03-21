@@ -1,0 +1,14 @@
+language: python
+python:
+  - '3.7'
+  - '3.6'
+  - '3.5'
+
+install:
+  - pip install coveralls
+  - pip install -r requirements.txt
+  - pip install setuptools
+script:
+  - coverage run --source=src setup.py test
+after_success:
+  - coveralls

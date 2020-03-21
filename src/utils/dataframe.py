@@ -26,6 +26,8 @@ class DataFrame:
     file_name = ""
 
     def __init__(self):
+        """Empty constructor
+        """
         pass
 
     def read_data_file(self, file_name: str, delimiter: str):
