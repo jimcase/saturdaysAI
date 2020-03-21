@@ -1,6 +1,6 @@
 import sys
 
-from src.utils.utils import DataFrame
+from src.utils.dataframe import DataFrame
 
 if __name__ == '__main__':
     # argument: full_path_to/housing.csv

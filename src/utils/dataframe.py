@@ -172,6 +172,4 @@ class DataFrame:
                        annot=True,
                        linewidth=1)
 
-        # a.invert_yaxis()
-        # a.xaxis.tick_top()
         plt.show()

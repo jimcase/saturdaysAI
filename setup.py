@@ -15,6 +15,6 @@ setup(
     author='jimcase',
     keywords='test unittest common',
     description=u'Testing using unittest for common',
-    packages=find_packages(include=['test_*.py']),
+    packages=find_packages(include=['*_test.py']),
     python_requires='>=3',
 )
