@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
+import pandas
 import pandas as pd
 import seaborn as sb
+from pandas._typing import FrameOrSeries
 
 
 class DataFrame:
@@ -49,7 +51,7 @@ class DataFrame:
         except IOError:
             print("Error: can\'t find file or read data")
 
-    def read_tsv_data_file(self, file_name):
+    def read_tsv_data_file(self, file_name: str):
         """Read a specific tsv (tabulation) data file
 
         Parameters
@@ -69,13 +71,14 @@ class DataFrame:
         except IOError:
             print("Error: can\'t find file or read data")
 
-    def describe(self):
+    def describe(self) -> pandas.core.frame.DataFrame:
         """Get the basic information about the DataFrame
         Returns
         -------
         tuple3
         a tuple about struct, data-format, and basi information
         """
+
         return self.data_frame.head(), \
                self.data_frame.describe(include='all'), \
                self.data_frame.info()
@@ -119,7 +122,7 @@ class DataFrame:
 
         # df = self.data_frame.dropna(axis=0)
 
-    def missing_data(self):
+    def missing_data(self) -> FrameOrSeries:
         """Get the head table about missing data in the dataframe
         Returns
         -------
