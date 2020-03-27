@@ -20,7 +20,7 @@ def get_current_time():
 def get_query_from_react():
     print("hello data")
 
-    print(request.get_json())
+    print(request.get_json()['fileContent'])
 
     return "OK"
 
