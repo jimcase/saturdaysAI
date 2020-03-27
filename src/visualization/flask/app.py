@@ -1,13 +1,14 @@
 import time
+from io import StringIO
 
 from flask import Flask, request
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
+
+from src.utils.dataframe import DataFrame
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
-app.config['CORS_HEADERS'] = 'Content-Type'
 
-CORS(app, support_credentials=True)
+CORS(app)
 
 
 @app.route('/time')
@@ -16,11 +17,18 @@ def get_current_time():
 
 
 @app.route('/api/query', methods=['POST'])
-@cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 def get_query_from_react():
     print("hello data")
 
     print(request.get_json()['fileContent'])
+
+    dt = DataFrame()
+
+    test_data = StringIO(request.get_json()['fileContent'])
+
+    dt.read_tsv_data_file(test_data)
+
+    print(dt.describe())
 
     return "OK"
 
