@@ -1,3 +1,5 @@
+from io import StringIO
+
 import matplotlib.pyplot as plt
 import pandas
 import pandas as pd
@@ -30,14 +32,13 @@ class DataFrame:
         """
         pass
 
-    def read_data_file(self, file_name: str, delimiter: str):
-
+    def read_data_from_string(self, data: str, delimiter: str):
         """Read a data file given the columns delimiter
 
         Parameters
         ----------
-        file_name : str
-            The sound the animal makes (default is None)
+        data : str
+            The string with the content data
         delimiter : str
             The delimiter to split the data into columns
         Raises
@@ -48,18 +49,22 @@ class DataFrame:
         """
 
         try:
-            self.data_frame = pd.read_csv(file_name, na_values=['no info', '.'], sep=delimiter)
-            self.file_name = file_name
+            self.data_frame = pd.read_csv(StringIO(data), delimiter=delimiter, na_values=['no info', '.'],
+                                          encoding='utf-8',
+                                          low_memory=False)
+            self.file_name = "none"
         except IOError:
-            print("Error: can\'t find file or read data")
+            print("Error: can\'t read the data")
 
-    def read_tsv_data_file(self, file_name: str):
+    def read_data_file(self, file_name: str, delimiter: str):
         """Read a specific tsv (tabulation) data file
 
         Parameters
         ----------
         file_name : str
-            The sound the animal makes (default is None)
+            The filename path with the data file
+        delimiter : str
+            The delimiter to split the data into columns
         Raises
         ------
         NotImplementedError
@@ -67,7 +72,7 @@ class DataFrame:
             parameter.
         """
         try:
-            self.data_frame = pd.read_csv(file_name, delimiter='\t', na_values=['no info', '.'], encoding='utf-8',
+            self.data_frame = pd.read_csv(file_name, delimiter=delimiter, na_values=['no info', '.'], encoding='utf-8',
                                           low_memory=False)
             self.file_name = file_name
         except IOError:

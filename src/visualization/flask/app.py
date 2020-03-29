@@ -1,5 +1,4 @@
 import time
-from io import StringIO
 
 from flask import Flask, request
 from flask_cors import CORS
@@ -20,15 +19,15 @@ def get_current_time():
 def get_query_from_react():
     print("hello data")
 
-    print(request.get_json()['fileContent'])
+    # print(request.get_json()['fileContent'])
 
     dt = DataFrame()
 
-    test_data = StringIO(request.get_json()['fileContent'])
+    test_data = request.get_json()['fileContent']
 
-    dt.read_tsv_data_file(test_data)
+    dt.read_data_from_string(test_data, '\t')
 
-    print(dt.describe())
+    print(dt.data_frame.to_json())
 
     return "OK"
 
