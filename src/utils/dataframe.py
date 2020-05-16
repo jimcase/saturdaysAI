@@ -9,7 +9,7 @@ from pandas._typing import FrameOrSeries
 
 class DataFrame:
     """
-    A class used to represent a data table as a DataFrame
+    class used to represent a data table as a DataFrame
     ...
 
     Attributes
@@ -43,8 +43,8 @@ class DataFrame:
             The delimiter to split the data into columns
         Raises
         ------
-        NotImplementedError
-            If the file cant be found or opened
+        NullPointerException
+            If the data string is null
             parameter.
         """
 
@@ -56,8 +56,8 @@ class DataFrame:
         except IOError:
             print("Error: can\'t read the data")
 
-    def read_data_file(self, file_name: str, delimiter: str):
-        """Read a specific tsv (tabulation) data file
+    def read_data_from_file(self, file_name: str, delimiter: str):
+        """Read a specific data file
 
         Parameters
         ----------
@@ -140,8 +140,6 @@ class DataFrame:
         if one_column_data_missed:
             self.data_frame.dropna(axis=1, inplace=True)
 
-        # df = self.data_frame.dropna(axis=0)
-
     def missing_data(self) -> FrameOrSeries:
         """Get the table about missing data in the dataframe
         Returns
@@ -181,14 +179,14 @@ class DataFrame:
     def plot_table_correlation(self):
         """Plot the dataframe
         """
-        corrm = self.data_frame.corr()
-        print(corrm)
-        a = sb.heatmap(corrm,
-                       xticklabels=corrm.columns,
-                       yticklabels=corrm.columns,
-                       cmap='RdBu_r',
-                       annot=True,
-                       linewidth=1)
+        table_correlation = self.data_frame.corr()
+
+        table_correlation_heatmap = sb.heatmap(table_correlation,
+                                               xticklabels=table_correlation.columns,
+                                               yticklabels=table_correlation.columns,
+                                               cmap='RdBu_r',
+                                               annot=True,
+                                               linewidth=1)
 
         plt.show()
 

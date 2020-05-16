@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 CORS(app)
 
+dt = DataFrame()
 
 @app.route('/time')
 def get_current_time():
@@ -21,15 +22,13 @@ def get_query_from_react():
 
     # print(request.get_json()['fileContent'])
 
-    dt = DataFrame()
+    data = request.get_json()['fileContent']
 
-    test_data = request.get_json()['fileContent']
-
-    dt.read_data_from_string(test_data, '\t')
+    dt.read_data_from_string(data, '\t')
 
     print(dt.data_frame.to_json())
 
-    return "OK"
+    return dt.data_frame.to_json()
 
 
 @app.route('/')

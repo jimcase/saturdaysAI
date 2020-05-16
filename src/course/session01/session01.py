@@ -7,7 +7,7 @@ if __name__ == '__main__':
     file_name = sys.argv[1]
 
     dt = DataFrame()
-    dt.read_data_file(file_name, ",")
+    dt.read_data_from_file(file_name, ",")
     # print(dt.describe())
     # print(dt.columns_names())
     dt.plot("longitude", "latitude", "population", 15, 8, "median_house_value")

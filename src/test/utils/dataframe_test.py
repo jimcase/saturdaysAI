@@ -12,7 +12,8 @@ class DataFrameTest(unittest.TestCase):
 
     def read_data_file_test(self):
         # TODO
-        dt = DataFrame().read_data_file("/Users/jcaso/Documents/ia/saturdaysAI/src/test/resources/csv_example.csv", ",")
+        dt = DataFrame().read_data_from_file("/Users/jcaso/Documents/ia/saturdaysAI/src/test/resources/csv_example.csv",
+                                             ",")
         # self.assertEqual(dt, True, "Incorrect values")
 
         # self.assertEqual(nutrient.InControlRange(), dt, "Incorrect values")
